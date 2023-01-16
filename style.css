@@ -1,0 +1,795 @@
+@font-face{
+    font-family: Sans-Variable;
+    src: url("assets/fonts/JosefinSans-Variable.ttf");
+}
+
+@keyframes move-down{
+    from{
+        bottom: 0px;
+    }
+    to{
+        bottom: -35px;
+    }
+}
+
+@keyframes move-top{
+    from{
+        bottom: 0px;
+    }
+    to{
+        bottom: 33px;
+    }
+}
+
+*{
+    scroll-behavior: smooth;
+    scrollbar-color: #c4d5ec transparent;
+    scrollbar-width: thin;
+}
+
+body{
+    margin: 0;
+    background: #00041b;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+    width: 11px;
+    height: 11px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: #c4d5ec;
+    border: 3px solid #0d1333;
+}
+
+body::-webkit-scrollbar-thumb{
+    border: 3px solid #00041b;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #8d9eb5;
+}
+
+::-webkit-scrollbar-thumb:active{
+    background: #4e5c6d;
+}
+
+#wilcont::-webkit-scrollbar{
+    height: 0px;
+}
+
+#navBar{
+    transition: border-radius .15s;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: calc(100% - 2px);
+    height: 105px;
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid #c4d5ec;
+    border-right: 2px solid #c4d5ec;
+    list-style: none;
+    text-align: center;
+    background: #0d1333;
+    box-shadow: 0px 0px 15px black;
+    border-radius: 0px 0px 10px 0px;
+    z-index: 999;
+}
+
+#navBar::after{
+    transition: border-radius .15s;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d1333;
+    border-radius: 0px 0px 10px 0px;
+    z-index: 0;
+}
+
+@-moz-document url-prefix(){
+    #navBar{
+        width: 100%;
+        border-right: 0px;
+        border-radius: 0px;
+    }
+    #navBar::after{
+        border-radius: 0px;
+    }
+}
+
+#navBar_before, #hidden{
+    position: absolute;
+    transition: height .15s, width .15s, box-shadow .15s;
+    width: 190px;
+    height: 190px;
+    background: #0d1333;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+#navBar_before{
+    border: 2px solid #c4d5ec;
+    box-shadow: 0px 0px 15px black;
+    z-index: -1;
+}
+
+#hidden{
+    z-index: 0;
+}
+
+#navBar > h1{
+    font: bold 3.5em Sans-Variable, Sans-Serif;
+    color: #c4d5ec;
+    display: inline-block;
+    position: absolute;
+    margin: 0;
+    top: 55%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    z-index: 1;
+}
+
+#hi{
+    right: calc(50% + 85px);
+    transition: right .15s;
+}
+
+#ad{
+    left: calc(50% + 85px);
+    transition: left .15s;
+}
+
+#me{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 21px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url("assets/imgs/me.gif") no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px black;
+    z-index: 1;
+    transition: height .15s, width .15s, top .15s;
+}
+
+.nav{
+    position: absolute;
+    transition: box-shadow .15s, text-shadow .15s, right .15s, left .15s;
+    border-radius: 0px 0px 3px 3px;
+    height: 35px;
+    box-shadow: 0px 0px 15px black;
+    bottom: 0px;
+    animation: move-down .75s ease-out;
+    bottom: -35px;
+}
+
+.nav::before, .nav::after, #wil_div, #l_div{
+    position: absolute;
+    height: 2px;
+    width: 15px;
+    background: #c4d5ec;
+    bottom: -2px;
+}
+
+.nav::before, .nav::after{
+    content: "";
+    animation: move-top .75s ease-out;
+    bottom: 33px;
+}
+
+#wil_div{
+    right: calc(50% + 95px);
+}
+
+#l_div{
+    left: calc(50% + 95px);
+}
+
+#shadowHider{
+    position: absolute;
+    height: 15px;
+    width: 2px;
+    right: -2px;
+    bottom: 0px;
+    background: #c4d5ec;
+    opacity: 0;
+    transition: opacity .15s;
+}
+
+.nav::before{
+    left: -15px;
+}
+
+.nav::after{
+    right: -15px;
+}
+
+.nav > a{
+    color: #c4d5ec;
+    background: #0d1333;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background .15s, color .15s;
+    text-decoration: none;
+    font: bold 20px Sans-Variable, Sans-Serif;
+    border: 2px solid #c4d5ec;
+    border-top-width: 0px;
+    border-radius: 0px 0px 3px 3px;
+}
+
+.nav > a > p{
+    opacity: 0;
+    margin: 0;
+    top: 50%;
+    transform: translateY(50%);
+    transition: opacity .5s;
+}
+
+@-moz-document url-prefix(){
+    .nav > a > p{
+        top: 50%;
+        transform: translateY(35%);
+    }
+}
+
+#nav_1{
+    width: 112px;
+    right: calc(50% + 285px);
+}
+
+#nav_2{
+    width: 130px;
+    right: calc(50% + 125px);
+}
+
+#nav_3{
+    width: 126px;
+    left: calc(50% + 125px);
+}
+
+#nav_4{
+    width: 126px;
+    left: calc(50% + 281px);
+}
+
+.txt{
+    margin-top: -160px;
+    padding-top: 170.5px;
+    color: #c4d5ec;
+    font: 1.2em Sans-Variable, Sans-Serif;
+    max-width: 876px;
+}
+
+.txt > h1{
+    transition: opacity .15s;
+    font-size: 2.5em;
+    margin: 0px;
+    display: inline-block;
+}
+
+.txt > .content{
+    border-radius: 10px;
+    border: solid 2px #b0c4de;
+    transition: opacity .15s;
+    line-height: 1.15;
+    box-shadow: 0px 0px 15px black;
+    background: #0d1333;
+    text-align: justify;
+    padding: 15px;
+    padding-bottom: 13px;
+    margin-block: 19.2px;
+}
+
+.txt > .content > a{
+    color: #c4d5ec;
+    text-decoration: underline solid 2px;
+}
+
+#wilcont{
+    scrollbar-width: none;
+    padding-inline: 0px;
+    padding-top: 20px;
+    padding-bottom: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 190px;
+    width: 872;
+}
+
+#wilcont > span{
+    transition: margin .5s;
+    margin-inline: 7px;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #c4d5ec;
+}
+
+#wilcont > span > *{
+    display: block;
+    margin-bottom: 11.5px;
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid #0d1333;
+}
+
+#wilcont > span:first-child{
+    margin-left: 20px;
+}
+
+#wilcont > span:last-child{
+    margin-right: 20px;
+}
+
+#wncont{
+    text-align: center;
+    padding: 0px;
+    font-size: 23px;
+    background: transparent;
+    border: 0px;
+    box-shadow: 0px 0px 0px;
+}
+
+#wncont > div{
+    margin-bottom: 30px;
+    background: #0d1333;
+    border: 2px solid #c4d5ec;
+    max-width: 504px;
+    margin-inline: auto;
+    padding-bottom: 11px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#wncont > div:nth-child(even){
+    margin-right: 5%;
+}
+
+#wncont > div:nth-child(odd){
+    margin-left: 5%;
+}
+
+#wncont > div > div{
+    margin-bottom: 15px;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: calc(100% - 2px);
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#wncont > div > div > .wnimg{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 251/132;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#wn1{
+    background: url("assets/imgs/football tricks.jpeg");
+}
+
+#wn2{
+    background: url("assets/imgs/python.png");
+}
+
+#wn3{
+    background: url("assets/imgs/reactjs.png");
+}
+
+#cmhead{
+    position: absolute;
+    margin-top: 52.5px;
+    right: calc(50% + 176.5px);
+}
+
+#cmcont{
+    margin-block: 22.2px;
+    white-space: normal;
+    position: absolute;
+    padding: 21px;
+    font-size: 22px;
+    width: fit-content;
+    height: 48px;
+    left: calc(50% - 151.5px);
+}
+
+#aboutme{
+    padding-top: 215px;
+    margin-top: 0px;
+    transition: padding-top .15s;
+}
+
+#contactme{
+    background: #0d1333;
+    padding: 0px;
+    margin: 0px;
+    height: 138px;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+#contactme > div > a{
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: 0px;
+}
+
+#contactme > div > a > *{
+    display: inline-block;
+    text-decoration: underline solid 2px;
+}
+
+#contactme > div > a > p{
+    margin: 0px;
+    margin-left: 7px;
+    margin-bottom: -3px;
+}
+
+#ml{
+    margin-right: 10.5px;
+}
+
+#ig{
+    margin-left: 10.5px;
+}
+
+#btn_top{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    text-align: center;
+    transition: background .15s, transform .15s, opacity .15s;
+    border-radius: 7.5px;
+    padding: 9px;
+    outline: 0;
+    border: #c4d5ec 2px solid;
+    background: #0d1333;
+    box-shadow: 0px 0px 10px black;
+    z-index: 999;
+}
+
+#btn_top > div > div{
+    height: 32px;
+    width: 32px;
+    transition: opacity .15s;
+}
+
+#div_grey{
+    background: url("assets/imgs/top-filled-grey x32.png") no-repeat;
+    margin-bottom: -32px;
+    opacity: 100;
+}
+
+#div_dblue{
+    background: url("assets/imgs/top-filled-blue x32.png") no-repeat;
+    margin-top: -32px;
+    opacity: 0;
+}
+
+@media (hover:hover){
+    .txt > .content > a:hover{
+        color: #d2e0f3;
+        text-decoration: underline solid #d2e0f3 2px;
+    }
+    #btn_top:hover{
+        background: #d2e0f3;
+    }
+    
+    #btn_top:hover #div_gey{
+        opacity: 0;
+    }
+    
+    #btn_top:hover #div_dblue{
+        opacity: 100;
+    }
+}
+
+@media (hover:none){
+    .txt > .content > a:active{
+        color: #c7d9f0;
+        text-decoration: underline solid #c7d9f0 2px;
+    }
+    #btn_top:active{
+        background: #c4d5ec;
+    }
+    
+    #btn_top:active #div_grey{
+        opacity: 0;
+    }
+    
+    #btn_top:active #div_dblue{
+        opacity: 100;
+    }
+}
+
+@media screen and (max-width: 922px) {
+    #contactme{
+        height: 200px;
+    }
+    #cmhead{
+        margin-top: 81px;
+        right: calc(50% + 72px);
+    }
+    #cmcont{
+        width: 306px;
+        height: 110px;
+        left: calc(50% - 47px);
+    }
+    #ml{
+        margin-right: 0px;
+    }
+    #ig{
+        margin-left: 0px;
+        margin-top: 7px;
+    }
+    @media screen and (max-width: 886px) {
+        #wilcont{
+            width: 588px;
+        }
+        @media screen and (max-width: 830px){
+            #navBar{
+                border-radius: 0px;
+            }
+            #navBar::after{
+                border-radius: 0px;
+            }
+            @media screen and (max-width: 814px){
+                #navBar{
+                    border-radius: 0px 0px 10px 0px;
+                }
+                #navBar::after{
+                    border-radius: 0px 0px 10px 0px;
+                }
+                @-moz-document url-prefix(){
+                    #navBar{
+                        border-radius: 0px;
+                    }
+                    #navBar::after{
+                        border-radius: 0px;
+                    }
+                }
+                #aboutme{
+                    padding-top: 172px;
+                }
+                #hidden{
+                    display: none;
+                }
+                #me{
+                    height: 90px;
+                    width: 90px;
+                    top: 7.5px;
+                }
+                #navBar_before{
+                    height: 102px;
+                    width: 102px;
+                    box-shadow: 0px 0px 0px;
+                }
+                #nav_1{
+                    right: calc(50% + 175px);
+                }
+                #nav_2{
+                    right: calc(50% + 15px);
+                }
+                #nav_3{
+                    left: calc(50% + 15px);
+                }
+                #nav_4{
+                    left: calc(50% + 171px);
+                }
+                #hi{
+                    right: calc(50% + 55px);
+                }
+                #ad{
+                    left: calc(50% + 55px);
+                }
+                @media screen and (max-width: 725px) {
+                    #cmhead{
+                        display: none;
+                    }
+                    #cmcont{
+                        margin-left: 46.5px;
+                        left: calc(50% - 46.5px);
+                        transform: translateX(-50%);
+                    }
+                    @media screen and (max-width: 610px){
+                        #navBar{
+                            border-radius: 0px;
+                        }
+                        #navBar::after{
+                            border-radius: 0px;
+                        }
+                        #shadowHider{
+                            opacity: 100;
+                        }
+                        @media screen and (max-width: 602px) {
+                            #wilcont{
+                                width: 304px;
+                            }
+                            @media screen and (max-width: 594px){
+                                #nav_1{
+                                    right: calc(50% + 141px);
+                                }
+                                #nav_2{
+                                    right: calc(50% + 11px);
+                                }
+                                #nav_3{
+                                    left: calc(50% - 11px);
+                                }
+                                #nav_4{
+                                    left: calc(50% + 115px);
+                                }
+                                .nav::before, .nav::after{
+                                    display: none;
+                                }
+                                .nav{
+                                    box-shadow: 0px 0px 0px 0px;
+                                    bottom: 0px;
+                                    margin-left: 6px;
+                                    margin-right: -6px;
+                                    transition: left 0s, right 0s;
+                                    animation: none;
+                                }
+                                .nav > a{
+                                    border: 0px;
+                                    border-radius: 0px;
+                                }
+                                #navs{
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    position: absolute;
+                                    width: 494px;
+                                    height: 35px;
+                                    border: solid 2px #c4d5ec;
+                                    border-top: 0px;
+                                    border-radius: 0px 0px 3px 3px;
+                                    top: 105px;
+                                }
+                                #navBar{
+                                    border-radius: 0px 0px 10px 0px;
+                                }
+                                #navBar::after{
+                                    border-radius: 0px 0px 10px 0px;
+                                }
+                                @-moz-document url-prefix(){
+                                    #navBar{
+                                        border-radius: 0px;
+                                    }
+                                    #navBar::after{
+                                        border-radius: 0px;
+                                    }
+                                }
+                                #shadowHider{
+                                    opacity: 0;
+                                }
+                                @media screen and (max-width: 519px){
+                                    #navBar{
+                                        border-radius: 0px;
+                                    }
+                                    #navBar::after{
+                                        border-radius: 0px;
+                                    }
+                                    #shadowHider{
+                                        opacity: 100;
+                                    }
+                                    @media screen and (max-width: 507px){
+                                        #navBar{
+                                            width: calc(100% - 1px);
+                                        }
+                                        #navBar::after{
+                                            width: calc(100% - 1px);
+                                        }
+                                        @-moz-document url-prefix(){
+                                            #navBar{
+                                                width: 100%;
+                                            }
+                                            #navBar::after{
+                                                width: 100%;
+                                            }
+                                        }
+                                        @media screen and (max-width: 506px){
+                                            #navBar{
+                                                width: 100%;
+                                                border-right: 0px;
+                                            }
+                                            #shadowHider{
+                                                display: none;
+                                            }
+                                            #wil_div, #l_div{
+                                                display: none;
+                                            }
+                                            #navs{
+                                                border: 0px;
+                                                z-index: 1;
+                                                top: 0px;
+                                                width: 100%;
+                                                height: 100%;
+                                            }
+                                            .mn{
+                                                opacity: 0;
+                                            }
+                                            .nav{
+                                                margin: 0px;
+                                                transition: top 0s, left 0s, right 0s;
+                                                height: 50%;
+                                            }
+                                            .nav > a > p{
+                                                top: 50%;
+                                                transform: translateY(100%);
+                                                margin-top: auto;
+                                                margin-bottom: auto;
+                                            }
+                                            @-moz-document url-prefix(){
+                                                .nav > a > p{
+                                                    top: 50%;
+                                                    transform: translateY(65%);
+                                                }
+                                            }
+                                            #aboutme{
+                                                padding-top: 137px;
+                                            }
+                                            .txt{
+                                                margin-top: -127px;
+                                                padding-top: 137.5px;
+                                            }
+                                            #nav_1{
+                                                right: initial;
+                                                left: 0px;
+                                                width: 50%;
+                                            }
+                                            #nav_2{
+                                                left: initial;
+                                                right: 0px;
+                                                width: 50%;
+                                            }
+                                            #nav_3{
+                                                right: initial;
+                                                left: 0px;
+                                                width: 50%;
+                                            }
+                                            #nav_4{
+                                                left: initial;
+                                                right: 0px;
+                                                width: 50%;
+                                            }
+                                            .col1{
+                                                top: 0%;
+                                            }
+                                            .col2{
+                                                top: 50%;
+                                            }
+                                            @media screen and (max-width: 362px){
+                                                #cmcont{
+                                                    width: auto;
+                                                    font-size: 5vw;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

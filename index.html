@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Aditya Semwal">
+        <meta property="og:site_name" content="Aditya Semwal">
+        <meta property="og:description" content="Portfolio">
+        <meta property="og:image" content="assets/imgs/me.jpg">
+        <meta property="og:image:width" content="500">
+        <meta property="og:image:height" content="500">
+        <meta property="og:type" content="Website"/>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/ico" href="favicon.ico">
+        <title>Aditya Semwal</title>
+    </head>
+    <body>
+        <ul id="navBar">
+            <h1 id="hi" class="mn">Hi, I'm</h1>
+            <h1 id="ad" class="mn">Aditya</h1>
+            <div id="navs">
+                <li id="nav_1" class="nav col1"><a href="#aboutme"><p>About Me</p></a></li>
+                <div id="wil_div"></div>
+                <li id="nav_2" class="nav col1"><a href="#whatilove"><p>What I Love</p></a></li>
+                <div id="l_div"></div>
+                <li id="nav_3" class="nav col2"><a href="#whatsnew"><p>What's New</p></a></li>
+                <li id="nav_4" class="nav col2"><a href="#contactme"><p>Contact Me</p></a></li>
+            </div>
+            <div id="navBar_before"></div>
+            <div id="me"></div>
+            <div id="shadowHider"></div>
+            <div id="hidden"></div>
+        </ul>
+        
+        <center>
+            <div id="aboutme" class="txt">
+                <h1 id="amhead">About Me</h1>
+                <p id="amcont" class="content">
+                    Hi, I'm Aditya Semwal from Dehradun, Uttarakhand studying in 9th standard, want to become an I.T. engineer
+                    When I was younger I liked gaming.
+                    When I saw some people make games I thought I should also do that.
+                    So, I joined coding classes from <a target="_blank" href="https://www.whitehatjr.com">WhiteHatJr</a> in 2020.
+                    And, from there I got interested in web & software development.
+                    I have learnt 3 programming languages HTML, CSS and Javascript.
+                    And now, I'm learning python.
+                    It has been really interesting for me to test my creativity and use it to create programs and websites.
+                    And, I'm very happy with what I learnt all these years.
+                    It really will help me to achieve my goals in future.
+                </p>
+            </div>
+            <div id="whatilove" class="txt">
+                <h1 id="wilhead">What I Love</h1>
+                <div id="wilcont" class="content">
+                    <span>
+                        <img src="assets/imgs/programming.jpeg">
+                        Programming
+                    </span>
+                    <span>
+                        <img src="assets/imgs/animation.gif">
+                        Animation
+                    </span>
+                    <span>
+                        <img src="assets/imgs/football.jpeg">
+                        Football
+                    </span>
+                    <span>
+                        <img src="assets/imgs/calisthenics.jpeg">
+                        Calisthenics
+                    </span>
+                    <span>
+                        <img src="assets/imgs/gaming.jpeg">
+                        Gaming
+                    </span>
+                    <span>
+                        <img src="assets/imgs/movies.jpeg">
+                        Movies
+                    </span>
+                </div>
+            </div>
+            <div id="whatsnew" class="txt">
+                <h1 id="lhead">What's New</h1>
+                <div id="wncont" class="content">
+                    <div>
+                        <div>
+                            <div id="wn1" class="wnimg"></div>
+                        </div>
+                        Football Tricks
+                    </div>
+                    <div>
+                        <div>
+                            <div id="wn2" class="wnimg"></div>
+                        </div>
+                        Python
+                    </div>
+                    <div>
+                        <div>
+                            <div id="wn3" class="wnimg"></div>
+                        </div>
+                        React.js
+                    </div>
+                </div>
+            </div>
+            <div id="contactme" class="txt">
+                <h1 id="cmhead">Contact Me:</h1>
+                <div id="cmcont" class="content">
+                    <a id="ml" href='mailto:sem.aditya07@gmail.com?subject=Hey! I want to talk to you&body=Hey Aditya,'>
+                        <img src="assets/imgs/mail.png">
+                        <p>sem.aditya07@gmail.com</p>
+                    </a>
+                    <a id="ig" target="_blank" href="https://www.instagram.com/uk.aditya_07">
+                        <img src="assets/imgs/instagram.png">
+                        <p>uk.aditya_07</p>
+                    </a>
+                </div>
+            </div>
+        </center>
+
+        <button id="btn_top" onclick="move_top();" onmousedown="down();" onmouseup="up();" onmouseleave="up();">
+            <div>
+                <div id="div_grey"></div>
+                <div id="div_dblue"></div>
+            </div>
+        </button>
+        <script src="main.js"></script>
+    </body>
+</html>
